@@ -1,0 +1,42 @@
+analyze_notebooks:
+  description: >
+    Analyze all Jupyter Notebooks in the specified directory to assess code quality
+    and modularity. Identify potential components for refactoring.
+  expected_output: >
+    A detailed analysis of the notebook, including functionality descriptions, improvement
+    suggestions, and a quality rating (1-100).
+  agent: notebook_analyzer_agent
+  inputs:
+    directory: "./notebooks"
+
+generate_report:
+  description: >
+    Create a detailed report outlining areas of improvement, suggestions for refactoring,
+    and a modularization plan based on the analysis.
+  expected_output: >
+    A comprehensive modularization plan with detailed refactoring suggestions.
+  agent: notebook_analyzer_agent
+  context: [analyze_notebooks]
+
+refactor_code:
+  description: >
+    Refactor the notebook into modular Python scripts based on the modularization plan.
+    Ensure improved quality while retaining original functionality.
+  expected_output: >
+    Modular Python scripts saved in the specified output directory.
+  agent: code_refactorer_agent
+  context: [generate_report]
+  inputs:
+    directory: "./modularized_notebooks"
+    overwrite: "True"
+
+validate_code:
+  description: >
+    Validate the refactored code by comparing its functionality against the original notebook.
+    Provide feedback for corrections if discrepancies are found.
+  expected_output: >
+    A validation report confirming that refactored scripts align with the original functionality.
+  agent: code_validator_agent
+  context: [refactor_code]
+  inputs:
+    directory: "./modularized_notebooks"
