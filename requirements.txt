@@ -1,0 +1,9 @@
+crewai>=0.11.0
+crewai-tools>=0.0.7
+langchain-openai>=0.0.5
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+nbformat>=5.9.2
+pandas>=2.0.0
+ast>=0.0.2
+pathlib>=1.0.1 

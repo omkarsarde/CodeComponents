@@ -1,0 +1,17 @@
+2025-02-21 17:59:05,717 - 123408 - main.py-main:51 - INFO: Starting notebook modularization process
+2025-02-21 17:59:05,720 - 123408 - crew.py-_load_configurations:50 - INFO: Configurations loaded successfully
+2025-02-21 17:59:05,728 - 123408 - crew.py-_initialize_llm:41 - INFO: Initialized LLM: gpt-4o
+2025-02-21 17:59:05,728 - 123408 - crew.py-__init__:33 - INFO: NotebookModularizationCrew initialized
+2025-02-21 17:59:05,731 - 123408 - main.py-main:57 - CRITICAL: Application failed: 'NotebookAnalyzerTool'
+Traceback (most recent call last):
+  File "/home/os/Projects/LLMExperiments/codeComponents/src/main.py", line 52, in main
+    crew = NotebookModularizationCrew()
+  File "/home/os/anaconda3/envs/llms/lib/python3.10/site-packages/crewai/project/crew_base.py", line 36, in __init__
+    self.map_all_agent_variables()
+  File "/home/os/anaconda3/envs/llms/lib/python3.10/site-packages/crewai/project/crew_base.py", line 108, in map_all_agent_variables
+    self._map_agent_variables(
+  File "/home/os/anaconda3/envs/llms/lib/python3.10/site-packages/crewai/project/crew_base.py", line 135, in _map_agent_variables
+    self.agents_config[agent_name]["tools"] = [
+  File "/home/os/anaconda3/envs/llms/lib/python3.10/site-packages/crewai/project/crew_base.py", line 136, in <listcomp>
+    tool_functions[tool]() for tool in tools
+KeyError: 'NotebookAnalyzerTool'

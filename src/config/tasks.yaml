@@ -1,0 +1,53 @@
+analyze:
+  description: >
+    Analyze the Jupyter notebooks in the input directory. Focus on:
+    1. Code structure and dependencies
+    2. Quality metrics and complexity
+    3. Modularization opportunities
+    4. Data processing and ML pipeline patterns
+  expected_output: >
+    A detailed analysis report in JSON format containing:
+    - Code quality metrics
+    - Identified components and their dependencies
+    - Recommendations for modularization
+    - Potential risks and challenges
+  context:
+    - "Input directory: {input_directory}"
+    - "Notebook type: {notebook_type}"
+    - "Analysis scope: code quality, modularity, and dependencies"
+
+refactor:
+  description: >
+    Based on the analysis results, refactor the notebooks into modular components:
+    1. Create separate modules for distinct functionalities
+    2. Implement proper error handling and logging
+    3. Add comprehensive documentation
+    4. Ensure code follows ML best practices
+  expected_output: >
+    A collection of modular Python files with:
+    - Clear separation of concerns
+    - Well-documented functions and classes
+    - Proper error handling
+    - Unit tests for each component
+  context:
+    - "Output directory: {output_directory}"
+    - "Previous task output: ##ANALYZE##"
+    - "Target: maintainable and testable ML components"
+
+validate:
+  description: >
+    Validate the refactored components:
+    1. Run unit tests for each component
+    2. Verify ML functionality preservation
+    3. Check code quality metrics
+    4. Ensure documentation completeness
+  expected_output: >
+    A validation report containing:
+    - Test results for each component
+    - Quality metrics comparison
+    - Functionality verification results
+    - Documentation coverage stats
+  context:
+    - "Test data path: {test_data_path}"
+    - "Previous task output: ##REFACTOR##"
+    - "Success criteria: All tests pass, quality metrics improved" 
